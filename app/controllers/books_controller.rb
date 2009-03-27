@@ -14,6 +14,7 @@ class BooksController < ApplicationController
   # GET /books/1.xml
   def show
     @book = Book.find(params[:id])
+    @authors = Author.all - @book.authors
 
     respond_to do |format|
       format.html # show.html.erb

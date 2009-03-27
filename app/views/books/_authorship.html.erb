@@ -1,0 +1,3 @@
+<li id="authorship_<%= authorship.id %>">
+  <%= authorship.author.name %> <%= button_to "remove", authorship_path(authorship), :method => "delete" %>
+</li>

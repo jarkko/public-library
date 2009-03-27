@@ -3,8 +3,33 @@
 </h1>
 
 <dl>
+  <dt>
+    Authors
+  </dt>
+  
+  <dd>
+    <ul id="authors">
+      <% unless @book.authors.blank? %>
+        <%= render :partial => "authorship", :collection => @book.authorships %>
+      <% else %>
+        <li><em>No authors</em></li>
+      <% end %>
+    </ul>
+  </dd>
+  
   <dt>ISBN</dt>
   <dd><%= @book.isbn %></dd>
+
+  <dt>Add authors</dt>
+  <dd id="add_authors">
+    <ul id="all_authors">
+      <% unless @authors.blank? %>
+        <%= render :partial => "author", :collection => @authors %>
+      <% else %>
+        <li><em>No more authors to add</em></li>
+      <% end %>
+    </ul>
+  </dd>
 </dl>
 
 

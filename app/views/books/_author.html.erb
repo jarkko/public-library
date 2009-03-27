@@ -1,0 +1,4 @@
+<li id="author_<%= author.id %>">
+  <%= author.name %>
+  <%= button_to "add", authorships_path(:book_id => @book, :author_id => author) %>
+</li>
