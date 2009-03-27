@@ -4,4 +4,8 @@ class Book < ActiveRecord::Base
 
   has_many :authorships
   has_many :authors, :through => :authorships
+
+  def author_names
+    authors.map{|author| author.name }.join(", ")
+  end
 end
