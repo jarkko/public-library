@@ -62,12 +62,15 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.update_attributes(params[:book])
-        flash[:notice] = 'Book was successfully updated.'
-        format.html { redirect_to(@book) }
-        format.xml  { head :ok }
+        format.html do
+          flash[:notice] = 'Book was successfully updated.'
+          redirect_to(@book)
+        end
+        format.js do
+          render :partial => "book"
+        end
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
       end
     end
   end

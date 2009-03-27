@@ -1,5 +1,5 @@
-<h1>
-  <%= @book.title %>
+<h1 id="book_title">
+  <%= render :partial => "book" %>
 </h1>
 
 <dl>
@@ -16,9 +16,6 @@
       <% end %>
     </ul>
   </dd>
-  
-  <dt>ISBN</dt>
-  <dd><%= @book.isbn %></dd>
 
   <dt>Add authors</dt>
   <dd id="add_authors">
@@ -30,8 +27,23 @@
       <% end %>
     </ul>
   </dd>
+  
+  <dt>
+    <%= link_to_function "Edit", "$('update_info').toggle()" %>
+  </dt>
+  
+  <dd id="update_info" style="display:none;">
+    <% remote_form_for(@book, :update => "book_title") do |f| %>
+
+    <%= error_messages_for(:book) %>
+
+      Title: <%= f.text_field :title %><br />
+      ISBN: <%= f.text_field :isbn %><br />
+
+      <%= submit_tag "Update" %>
+    <% end %>
+  </dd>
 </dl>
 
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
