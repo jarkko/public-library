@@ -1,3 +1,12 @@
+<h1>
+  <%= @book.title %>
+</h1>
+
+<dl>
+  <dt>ISBN</dt>
+  <dd><%= @book.isbn %></dd>
+</dl>
+
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

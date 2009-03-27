@@ -1,0 +1,10 @@
+<% form_for(@book) do |f| %>
+  <%= f.error_messages %>
+
+  Title: <%= f.text_field :title %><br />
+  ISBN: <%= f.text_field :isbn %><br />
+
+  <p>
+    <%= f.submit (@book.new_record? ? 'Create' : 'Update') %>
+  </p>
+<% end %>

@@ -6,7 +6,7 @@
 
 <% @books.each do |book| %>
   <tr>
-    <td><%= link_to 'Show', book %></td>
+    <th><%= link_to book.title, book %></th>
     <td><%= link_to 'Edit', edit_book_path(book) %></td>
     <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
