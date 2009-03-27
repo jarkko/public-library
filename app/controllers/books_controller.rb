@@ -66,9 +66,7 @@ class BooksController < ApplicationController
           flash[:notice] = 'Book was successfully updated.'
           redirect_to(@book)
         end
-        format.js do
-          render :partial => "book"
-        end
+        format.js
       else
         format.html { render :action => "edit" }
       end

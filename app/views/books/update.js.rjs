@@ -1,0 +1,4 @@
+if @book.valid?
+  page[:book_title].replace_html :partial => "book"
+  page[:update_info].toggle
+end
